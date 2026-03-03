@@ -1,0 +1,64 @@
+id,name,cuisine,rating,city,website,dishes,latitude,longitude
+1,Pastabilities,Italian,4.5,Syracuse,https://www.pastabilities.com,"Spicy Hot Tomato Oil, Homemade Pasta, Stretch Bread",43.0481,-76.1555
+2,Francesca's Cucina,Italian,4.7,Syracuse,https://www.francescas-cucina.com,"Gemelli Angeloro, Veal Parmigiana, Cannoli",43.0534,-76.1498
+3,Delmonico's Italian Steakhouse,Italian,4.6,Syracuse,https://www.delmonicositaliansteakhouse.com/location/delmonicos-italian-steakhouse-syracuse-ny/,"Delmonico Steak, Shrimp Scampi, Chicken Parmigiana",43.0729,-76.1032
+4,Attilio's Restaurant & Bar,Italian,4.5,Syracuse,https://www.attiliosonjames.com,"Spaghetti Pie, Oven-Fired Pizzas, Chicken Riggies",43.0592,-76.1445
+5,Apizza Regionale,Italian,4.8,Syracuse,https://www.apizzaregionale.com,"Wood-Fired Pizzas, Misticanza Salad, House-Made Sausages",43.0485,-76.1557
+6,Joey's Classic Italian Dining,Italian,4.5,Syracuse,https://www.joeysitalianrestaurant.com,"Calamari, Lasagna, Chicken Francaise",43.0725,-76.1189
+7,Mona Lisa's Ristorante,Italian,4.6,Syracuse,https://mymonalisas.com/?utm_source=google,"Homemade Gnocchi in Vodka Sauce, Chicken Riggies, Mona Lisa's Lasagna",43.041,-76.1945
+8,Grotto,Italian,4.6,Syracuse,https://grottonorthsyracuse.com,"Chicken Riggies, Utica Greens, Veal Saltimbocca",43.123,-76.1391
+9,Angotti's Family Restaurant,Italian,4.4,Syracuse,http://ww16.angottisfamilyrestaurantsyracuse.cafesandrestaurants.website/?sub1=20250413-0834-458c-8e56-105331c9d4ee,"Manicotti, Stuffed Shells, Eggplant Parmigiana",43.0672,-76.1439
+10,Strada Mia 313,Italian,4.5,Syracuse,https://stradamia313.com,"Ribeye, Prime Rib, Chicken Milanese",43.0483,-76.1706
+11,Little Italy Restaurant and Pizzeria,Italian,4.1,Canton,https://www.littleitalycanton.com,"Calzone,Hot Wings,Mozzarella sticks",44.5958,-75.169
+12,Taco Bell,Italian,4.1,Canton,https://www.dairyqueen.com/en-us/locations/ny/canton/51-gouverneur-st/3199/?utm_source=organic&utm_campaign=yext%2F&y_source=1_ODk5NzAzOS03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D,"Crunchwrap Supreme, Chalupa Supreme, Cheesy Gordita Crunch",44.6019,-75.1652
+13,Dairy Queen Grill & Chill,Italian,3.6,Canton,https://www.dairyqueen.com/en-us/locations/ny/canton/51-gouverneur-st/3199/?utm_source=organic&utm_campaign=yext%2F&y_source=1_ODk5NzAzOS03MTUtbG9jYXRpb24ud2Vic2l0ZQ%3D%3D,"Original Cheeseburger, Chicken Strip Basket, Blizzard Treats",44.5958,-75.1697
+14,Little Italy,Italian,3.9,Canton,https://order.toasttab.com/online/little-italy-potsdam-30-market-st,"Hand-Tossed Pizza, Pasta Dishes, Garlic Knots",44.5954,-75.1703
+15,Sergi’s,Italian,3.9,Canton,https://www.menuguide.com/NY/Potsdam/Mama-Lucia,"Pizza, Pasta, Veal Parmigiana",44.5957,-75.1705
+16,Mama Lucia’s,Italian,3.3,Canton,http://yamashorestaurant.com,"Chicken Parmigiana, Wood-Fired Pizza, Lasagna",44.6698,-74.9813
+17,Potsdam Little Italy,Italian,3.4,Potsdam,https://www.guadalajaramexican.com,"Sandstoners, Hot & Cold Subs, Specialty Pizzas",44.6699,-74.9813
+18,The Mill Restaurant,Italian,4.4,Canton,https://margaritasmexicancantina.com,"French-Style Filet Mignon, Wienerschnitzel, Chicken Cordon Bleu",44.6699,-74.9813
+19,Sergi’s Italian Restaurant,Italian,3.2,Canton,https://alto-cinco.squarespace.com,"Pizza, Pasta, Veal Parmigiana",44.5954,-75.1719
+20,Cavallarion’s Steak & Seafood House,Italian,3.5,Canton,https://www.ponchitossyr.com,"Prime Rib, Scallops, Chicken Parmigiana",44.3369,-75.9186
+21,An Italian Affair,Italian,3.4,Canton,https://www.northsyracusemexican.com,"Pizza, Calzones, Wings",44.9281,-74.885
+22,New Centennial Restaurant,Italian,5,Canton,https://www.anitascorp.com/menu,Information not available.,40.7989,-81.3784
+23,Jimmy’s 21,Italian,3.6,Canton,https://www.menuguide.com/NY/Potsdam/Cactus-Grill-Cantina,"Chicken Marsala, Lobster Ravioli, Eggplant Parmigiana",40.7989,-81.3784
+24,Royal India Grill,Indian,4.9,Potsdam,https://www.royalindiagrillpotsdam.com,"Veg Biryani, Chicken Tikka Masala, Lamb Vindaloo",44.67,-74.987
+25,Sergi's Italian Restaurant & Pizzeria,Italian,4.1,Potsdam,https://sergispizza.com,"Pizza Rolls, Lasagna, Chicken Parmigiana",44.6695,-74.9813
+26,Little Italy,Italian,3.8,Potsdam,https://order.toasttab.com/online/little-italy-potsdam-30-market-st,"Sandstoners, Hot & Cold Subs, Specialty Pizzas",44.67,-74.9815
+27,Mama Lucia's,Italian,3.5,Potsdam,https://www.menuguide.com/NY/Potsdam/Mama-Lucia,"Chicken Parmigiana, Wood-Fired Pizza, Lasagna",44.6698,-74.9813
+28,Dosa Grill,Indian,4,Syracuse,https://www.syracusedosagrill.com,"Masala Dosa, Chicken Tikka Masala, Paneer Butter Masala",43.0381,-76.071
+29,Royal Indian Grill,Indian,4.7,Syracuse,https://www.suroyalindiangrill.com,"Chicken Tikka Masala, Lamb Vindaloo, Vegetable Biryani",43.0429,-76.136
+30,Raj Saffron House,Indian,5,Syracuse,https://www.rajsaffronhouse.com,"Chicken Tikka Masala, Lamb Curry, Vegetable Biryani",43.037,-76.126
+31,The York,American,4.5,Syracuse,https://yorkcny.com,"Seafood Linguine, Tomahawk Steak, Burrata",43.0473,-76.155
+32,Eleven Waters,American,4.1,Syracuse,https://www.elevenwaters.com,"Smoked Meatball, Scallops, Tuna",43.0479,-76.1505
+33,Stella's Diner,American,4.3,Syracuse,https://www.stellasdinersyracuse.com,"Breakfast Specials, Burgers, Sandwiches",43.0645,-76.1571
+34,Dinosaur Bar-B-Que,American,4.5,Syracuse,https://dinosaurbarbque.com/locations/syracuse,"Bar-B-Que Ribs, Pulled Pork, Brisket",43.0485,-76.1558
+35,Dark Horse Tavern,American,4,Syracuse,https://www.darkhorsetaverndewitt.com,"French Onion Soup, Fried Haddock, Famous Dip Sandwich",43.0387,-76.0673
+36,LM Social,American,4.2,Syracuse,https://www.thelmsocial.com,"Locally-Sourced Dishes, Craft Cocktails, Desserts",43.049,-76.15
+37,Pastabilities,American,4.6,Syracuse,https://www.pastabilities.com,"Spicy Hot Tomato Oil, Homemade Pasta, Stretch Bread",43.0478,-76.1552
+39,The Bagelry,American,3.9,Canton,https://parkbros.com,"Fresh Bagels, Breakfast Sandwiches, Coffee",44.5954,-75.1697
+40,County Seat Restaurant & Lounge,American,4,Canton,https://staystlawrence.com,"Steak, Breakfast Specials, Seafood",44.595,-75.1625
+41,The Meadows Restaurant,American,3.8,Canton,https://places.singleplatform.com/the-meadows-restaurant/menu?ref=google,"Classic Diner Fare, Burgers, Pies",44.6012,-75.1708
+42,1844 House,American,4.4,Potsdam,https://www.1844house.com,"Veal Meatballs, Cabernet Braised Short Ribs, Margarita Tart",44.6695,-74.9813
+43,Maxfields,American,4,Potsdam,https://www.maxfieldsofpotsdam.com,"Seafood Linguine, Tomahawk Steak, Burrata",44.6692,-74.9815
+44,Village Diner,American,4.3,Potsdam,https://www.villagediner.com,"Breakfast Specials, Burgers, Sandwiches",44.6701,-74.9817
+45,Jake's on the Water,American,4.5,Potsdam,https://jakesonthewater.com,"Maple Glazed Salmon, Adirondack Chicken, Prime Rib",44.6228,-74.9921
+46,A-1 Oriental Kitchen,Chinese,3.4,Canton,https://www.a1kitchen.com,"Crab Rangoon, Egg Rolls, Beef with Broccoli",44.5954,-75.1697
+47,Thai Smile,Thai,4.5,Canton,https://thai-smile.square.site/?fbclid=IwY2xjawHyBcFleHRuA2FlbQIxMAABHXzoOwKAhtnQ-oKZAzdEMXsCKnk9EtrfdReWxN3ZgpfIgKhJI2oD_xtp-A_aem_g_mnbxMyjon22RCEpD5FgQ,"Pad Thai, Green Curry, Mango Sticky Rice",44.595,-75.1625
+48,Lemon Grass,Thai,4.2,Syracuse,https://www.lemongrasscny.com,"Pacific Rim Thai dishes, Seafood, Desserts",43.0481,-76.1549
+49,Red Chili Restaurant,Chinese,4,Syracuse,https://www.redchilisyracuse.com,"Mapo Tofu, Spicy Chicken, Shredded Pork",43.0729,-76.1031
+50,Yamasho Sushi Steakhouse,Japanese,4.6,Syracuse,http://yamashorestaurant.com,"Sushi Rolls, Hibachi Dishes, Tempura",43.0343,-76.175
+51,Erawan Thai Restaurant,Thai,3.8,Syracuse,https://erawan-inc.net,"Pad Thai, Green Curry, Mango Sticky Rice",43.0725,-76.103
+52,Vietnamese Noodle House,Vietnamese,4.5,Syracuse,https://vietnoodlehouse.com,"Pho, Spring Rolls, Banh Mi",43.123,-76.138
+53,Thai Cuisine Restaurant,Thai,4.5,Potsdam,https://potsdamthaicuisine.com,"Pad Thai, Green Curry, Mango Sticky Rice",44.6695,-74.9813
+54,Asian Buffet & Mongolian Grill,Chinese,3.9,Potsdam,https://menuguide.com/NY/Potsdam/Asian-Buffet-Mongolian-Grill,"Sushi, Mongolian Grill, Bubble Tea",44.669,-74.981
+55,A-1 Kitchen,Chinese,2.8,Potsdam,https://menuguide.com/NY/Potsdam/A-1-Kitchen-Chinese,"General Tso's Chicken, Lo Mein, Crab Rangoon",44.6685,-74.9805
+56,Guadalajara Mexican Restaurant,Mexican,4,Syracuse,https://www.guadalajaramexican.com,"Birria Tacos, Guacamole Azteca, Volcan",43.0481,-76.1549
+57,Margaritas Mexican Cantina,Mexican,3.6,Syracuse,https://margaritasmexicancantina.com,"Tacos, Enchiladas, Fajitas",43.0481,-76.1549
+58,Alto Cinco,Mexican,3.7,Syracuse,https://alto-cinco.squarespace.com,"Salmon Burrito, Catfish Burrito, Shrimp Tostada",43.0481,-76.1549
+59,Ponchito's Taqueria,Mexican,3.6,Syracuse,https://www.ponchitossyr.com,"Super Burritos, Tacos, Quesadillas",43.0481,-76.1549
+60,Camino Real Mexican Restaurant,Mexican,4,Syracuse,https://www.northsyracusemexican.com,"Enchiladas, Fajitas, Speedy Gonzalez",43.0481,-76.1549
+62,Anita Burrito,Mexican,4.5,Potsdam,https://www.anitascorp.com/menu,"Burritos, Tacos, Quesadillas",44.6692,-74.9815
+64,Cactus Grill & Cantina,Mexican,4,Potsdam,https://www.menuguide.com/NY/Potsdam/Cactus-Grill-Cantina,"Steak Fajitas, Chicken Enchiladas, Chimichangas",44.6695,-74.9813
+66,Taco Bell,Mexican,3.5,Potsdam,https://www.tacobell.com/food?store=033619&utm_source=yext&utm_campaign=googlelistings&utm_medium=referral&utm_term=033619&utm_content=menu&y_source=1_ODc2OTUxNS03MTUtbG9jYXRpb24ubWVudV91cmw%3D,"Tacos, Burritos, Nachos",44.669,-74.981
+67,Asian Buffet & Mongolian Grill,Mongolian,3.9,Potsdam,https://menuguide.com/NY/Potsdam/Asian-Buffet-Mongolian-Grill,"Sushi, Mongolian Grill, Bubble Tea",44.669,-74.981

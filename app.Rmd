@@ -1,0 +1,347 @@
+```{r}
+
+library(shiny)
+library(dplyr)
+library(DT)
+library(leaflet)
+library(shinythemes)
+
+restaurant_data <- read.csv("restaurants.csv", stringsAsFactors = FALSE)
+
+renderStars <- function(rating) {
+  full_stars <- floor(rating)
+  half_star <- ifelse((rating - full_stars) >= 0.5, TRUE, FALSE)
+  stars <- paste(rep("★", full_stars), collapse = "")
+  if (half_star) stars <- paste0(stars, "½")
+  return(stars)
+}
+
+ui <- fluidPage(
+  theme = shinytheme("flatly"),
+  tags$head(tags$style(HTML("
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    body {
+      background: linear-gradient(-45deg, #f6d365, #fda085, #fbc2eb, #a6c1ee);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Helvetica Neue', sans-serif;
+    }
+
+    a {
+      color: black !important;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #007bff !important;
+      text-decoration: underline;
+    }
+
+    .welcome-section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .welcome-section > div {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .get-started-btn {
+      background-color: #28a745;
+      color: white;
+      font-size: 20px;
+      padding: 10px 30px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 20px;
+    }
+  "))),
+  uiOutput("mainUI")
+)
+
+server <- function(input, output, session) {
+  selected_restaurant <- reactiveVal(NULL)
+  user_step <- reactiveVal("home")
+  
+  observeEvent(input$startBtn, { user_step("search") })
+  observeEvent(input$backBtn, { user_step("search") })
+  
+  observeEvent(input$restaurantClick, {
+    selected <- restaurant_data %>% filter(id == input$restaurantClick)
+    if (nrow(selected) == 1) {
+      selected_restaurant(selected)
+      user_step("details")
+    }
+  })
+  
+  results_data <- eventReactive(input$searchBtn, {
+    restaurant_data %>%
+      filter(
+        cuisine == input$cuisine,
+        city == input$city,
+        rating >= input$rating
+      )
+  })
+  
+  output$mainUI <- renderUI({
+    step <- user_step()
+    
+    if (step == "home") {
+      tagList(
+        div(class = "welcome-section",
+            div(
+              h1("DineWise"),
+              h3("🍴 Smart dining recommendations tailored to you 🍴"),
+              p("Select your favorite cuisine and location to discover highly-rated restaurants nearby."),
+              actionButton("startBtn", "Get Started", class = "get-started-btn")
+            )
+        )
+      )
+    } else if (step == "search") {
+      tagList(
+        fluidRow(
+          column(4, selectInput("cuisine", "Choose Cuisine:", choices = unique(restaurant_data$cuisine))),
+          column(4, selectInput("city", "Select City:", choices = unique(restaurant_data$city))),
+          column(4, sliderInput("rating", "Minimum Rating:", min = 1, max = 5, value = 4, step = 0.1))
+        ),
+        actionButton("searchBtn", "Search", class = "btn btn-success"),
+        br(), br(),
+        DTOutput("restaurantTable")
+      )
+    } else if (step == "details") {
+      r <- selected_restaurant()
+      if (is.null(r)) return(NULL)
+      tagList(
+        actionButton("backBtn", "← Back to Search", class = "btn btn-secondary"),
+        br(), br(),
+        div(style = "margin: 0 auto; max-width: 720px; background-color: white; color: black; padding: 30px; border-radius: 12px; box-shadow: 0px 4px 12px rgba(0,0,0,0.1);",
+            h2(r[["name"]]),
+            p(strong("Cuisine: "), r[["cuisine"]]),
+            p(strong("City: "), r[["city"]]),
+            p(strong("Rating: "), renderStars(r[["rating"]])),
+            p(strong("Popular Dishes: "), r[["dishes"]]),
+            p(strong("Website: "), a("Visit", href = r[["website"]], target = "_blank")),
+            leafletOutput("detailMap", height = 500)
+        )
+      )
+    }
+  })
+  
+  output$restaurantTable <- renderDT({
+    df <- results_data()
+    if (nrow(df) == 0) return(NULL)
+    
+    df_display <- df %>%
+      mutate(Name = paste0(
+        "<a href='#' onclick='Shiny.setInputValue(\"restaurantClick\", ", 
+        id, 
+        ", {priority: \"event\"}); return false;'>", 
+        name, 
+        "</a>"
+      )) %>%
+      select(Name, rating)
+    
+    datatable(df_display, escape = FALSE, options = list(pageLength = 5))
+  })
+  
+  output$detailMap <- renderLeaflet({
+    r <- selected_restaurant()
+    if (is.null(r)) return(NULL)
+    leaflet() %>%
+      addTiles() %>%
+      addMarkers(lng = r$longitude, lat = r$latitude, popup = r$name)
+  })
+}
+
+shinyApp(ui, server)
+
+```
+#-------
+
+```{r}
+library(shiny)
+library(dplyr)
+library(DT)
+library(leaflet)
+library(shinythemes)
+
+# Load restaurant dataset
+restaurant_data <- read.csv("restaurants.csv", stringsAsFactors = FALSE)
+
+# Render star rating
+renderStars <- function(rating) {
+  full_stars <- floor(rating)
+  half_star <- ifelse((rating - full_stars) >= 0.5, TRUE, FALSE)
+  stars <- paste(rep("★", full_stars), collapse = "")
+  if (half_star) stars <- paste0(stars, "½")
+  return(stars)
+}
+
+# --- UI ---
+ui <- fluidPage(
+  theme = shinytheme("flatly"),
+  tags$head(tags$style(HTML("
+    body {
+      background: url('cozy_cafe.jpg') no-repeat center center fixed;
+      background-size: cover;
+      background-blend-mode: overlay;
+      background-color: rgba(255, 230, 200, 0.35);
+      font-family: 'Helvetica Neue', sans-serif;
+      margin: 0;
+    }
+
+    .welcome-section {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .welcome-section > div {
+      background-color: rgba(255, 255, 255, 0.9);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 100%;
+    }
+
+    .get-started-btn {
+      background-color: #28a745;
+      color: white;
+      font-size: 20px;
+      padding: 10px 30px;
+      border-radius: 8px;
+      border: none;
+      margin-top: 20px;
+    }
+
+    a {
+      color: black !important;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #007bff !important;
+      text-decoration: underline;
+    }
+  "))),
+  uiOutput("mainUI")
+)
+
+# --- Server ---
+server <- function(input, output, session) {
+  selected_restaurant <- reactiveVal(NULL)
+  user_step <- reactiveVal("home")
+
+  observeEvent(input$startBtn, { user_step("search") })
+  observeEvent(input$backBtn, { user_step("search") })
+
+  observeEvent(input$restaurantClick, {
+    selected <- restaurant_data %>% filter(id == input$restaurantClick)
+    if (nrow(selected) == 1) {
+      selected_restaurant(selected)
+      user_step("details")
+    }
+  })
+
+  results_data <- eventReactive(input$searchBtn, {
+    restaurant_data %>%
+      filter(
+        cuisine == input$cuisine,
+        city == input$city,
+        rating >= input$rating
+      )
+  })
+
+  output$mainUI <- renderUI({
+    step <- user_step()
+
+    if (step == "home") {
+      tagList(
+        div(class = "welcome-section",
+            div(
+              h1("DineWise"),
+              h3("🍴 Smart dining recommendations tailored to you 🍴"),
+              p("Select your favorite cuisine and location to discover highly-rated restaurants nearby."),
+              actionButton("startBtn", "Get Started", class = "get-started-btn")
+            )
+        )
+      )
+    } else if (step == "search") {
+      tagList(
+        fluidRow(
+          column(4, selectInput("cuisine", "Choose Cuisine:", choices = unique(restaurant_data$cuisine))),
+          column(4, selectInput("city", "Select City:", choices = unique(restaurant_data$city))),
+          column(4, sliderInput("rating", "Minimum Rating:", min = 1, max = 5, value = 4, step = 0.1))
+        ),
+        actionButton("searchBtn", "Search", class = "btn btn-success"),
+        br(), br(),
+        DTOutput("restaurantTable")
+      )
+    } else if (step == "details") {
+      r <- selected_restaurant()
+      if (is.null(r)) return(NULL)
+      tagList(
+        actionButton("backBtn", "← Back to Search", class = "btn btn-secondary"),
+        br(), br(),
+        div(style = "margin: 0 auto; max-width: 720px; background-color: white; color: black; padding: 30px; border-radius: 12px; box-shadow: 0px 4px 12px rgba(0,0,0,0.1);",
+            h2(r[["name"]]),
+            p(strong("Cuisine: "), r[["cuisine"]]),
+            p(strong("City: "), r[["city"]]),
+            p(strong("Rating: "), renderStars(r[["rating"]])),
+            p(strong("Popular Dishes: "), r[["dishes"]]),
+            p(strong("Website: "), a("Visit", href = r[["website"]], target = "_blank")),
+            leafletOutput("detailMap", height = 500)
+        )
+      )
+    }
+  })
+
+  output$restaurantTable <- renderDT({
+    df <- results_data()
+    if (nrow(df) == 0) return(NULL)
+
+    df_display <- df %>%
+      mutate(Name = paste0(
+        "<a href='#' onclick='Shiny.setInputValue(\"restaurantClick\", ", 
+        id, 
+        ", {priority: \"event\"}); return false;'>", 
+        name, 
+        "</a>"
+      )) %>%
+      select(Name, rating)
+
+    datatable(df_display, escape = FALSE, options = list(pageLength = 5))
+  })
+
+  output$detailMap <- renderLeaflet({
+    r <- selected_restaurant()
+    if (is.null(r)) return(NULL)
+    leaflet() %>%
+      addTiles() %>%
+      addMarkers(lng = r$longitude, lat = r$latitude, popup = r$name)
+  })
+}
+
+# Launch the app
+shinyApp(ui, server)
+
+```
+
